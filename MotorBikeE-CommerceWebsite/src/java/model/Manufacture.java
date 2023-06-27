@@ -9,5 +9,48 @@ package model;
  * @author admin
  */
 public class Manufacture {
+    private int  ManufacturerID;
+    String name;
+    String country;
+    String contact;
+
+    public Manufacture(int ManufacturerID, String name, String country, String contact) {
+        this.ManufacturerID = ManufacturerID;
+        this.name = name;
+        this.country = country;
+        this.contact = contact;
+    }
+
+    public int getManufacturerID() {
+        return ManufacturerID;
+    }
+
+    public void setManufacturerID(int ManufacturerID) {
+        this.ManufacturerID = ManufacturerID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
     
 }
