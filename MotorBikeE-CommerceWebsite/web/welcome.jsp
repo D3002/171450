@@ -19,6 +19,6 @@
     <head>
     </head>
     <body>
-        <h1 class="welcome">Welcome <%=session.getAttribute("emailId") %></h1>
+        <h1 class="welcome">Welcome <%=session.getAttribute("username") %></h1>
     </body>
 </html>

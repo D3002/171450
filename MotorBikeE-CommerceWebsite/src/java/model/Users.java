@@ -12,9 +12,9 @@ public class Users {
     private int userID;
     private String username;
     private String password;
-    private boolean isAdmin;
+    private int isAdmin;
 
-    public Users(int userID, String username, String password, boolean isAdmin) {
+    public Users(int userID, String username, String password, int isAdmin) {
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -45,11 +45,11 @@ public class Users {
         this.password = password;
     }
 
-    public boolean isIsAdmin() {
+    public int isIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(boolean isAdmin) {
+    public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
     
