@@ -11,13 +11,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import model.Users;
 
 /**
  *
  * @author admin
  */
-public class LoginServlet extends HttpServlet {
+public class HomeControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,15 +32,10 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username=request.getParameter("user");
-        String password=request.getParameter("pass");
         UserDAO dao = new UserDAO();
-        Users u =dao.loginByUsername(username, password);
-        if(u == null){
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
-            request.getRequestDispatcher("home").forward(request, response);
-        }
+        List<Users> list = dao.getAll();
+        request.setAttribute("listUser", list);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -8,6 +8,7 @@ import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,7 +18,8 @@ import model.Users;
  *
  * @author admin
  */
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "SignUpServlet", urlPatterns = {"/signUpServlet"})
+public class SignUpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,14 +33,20 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username=request.getParameter("user");
-        String password=request.getParameter("pass");
-        UserDAO dao = new UserDAO();
-        Users u =dao.loginByUsername(username, password);
-        if(u == null){
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        String repass = request.getParameter("repass");
+        if(!pass.equals(repass)){
+            response.sendRedirect("login.jsp");
         }else{
-            request.getRequestDispatcher("home").forward(request, response);
+            UserDAO dao = new UserDAO();
+            Users u = dao.checkExist(user);
+            if(u == null){
+                dao.signUp(user, pass);
+                response.sendRedirect("home");
+            }else{
+                response.sendRedirect("login.jsp");
+            }
         }
     }
 

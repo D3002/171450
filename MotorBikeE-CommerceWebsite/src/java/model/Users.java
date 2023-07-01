@@ -45,13 +45,15 @@ public class Users {
         this.password = password;
     }
 
-    public int isIsAdmin() {
+    public int getIsAdmin() {
         return isAdmin;
     }
 
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
+
+
     
     
 }

@@ -144,8 +144,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="loginHTML.html" class="nav-item nav-link">Đăng Nhập</a>
-                            <a href="" class="nav-item nav-link">Đăng Kí</a>
+                            <a href="login.jsp" class="nav-item nav-link">Đăng Nhập</a>
+                            <a href="signup.jsp" class="nav-item nav-link">Đăng Kí</a>
                         </div>
                     </div>
                 </nav>
