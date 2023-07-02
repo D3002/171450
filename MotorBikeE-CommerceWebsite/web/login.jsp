@@ -82,10 +82,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <form action="loginServlet" method="post" onclick="ValidateEmail(document.getElementById('emailId'))">
         <div class="container">
             <label for="username"><b>Username</b></label></br>
-            <input type="text" placeholder="Please enter your user name" name="username" id = "emailId" required></br>
+            <input type="text" placeholder="Please enter your user name" name="user" id = "emailId" required></br>
 
             <label for="password"><b>Password</b></label></br>
-            <input type="password" placeholder="Please enter Password" name="password" id="password" required></br>
+            <input type="password" placeholder="Please enter Password" name="pass" id="password" required></br>
 
             <button type="submit">Login</button></br>
             <label>

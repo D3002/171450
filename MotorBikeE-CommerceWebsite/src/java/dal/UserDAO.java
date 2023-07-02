@@ -70,7 +70,6 @@ public class UserDAO extends DBContext {
         try {
             stm = connection.prepareStatement(query);
             stm.setString(1, username);
-
             rs = stm.executeQuery();
         } catch (Exception e) {
 
@@ -79,7 +78,7 @@ public class UserDAO extends DBContext {
     }
 
     public void signUp(String username, String password) {
-        String query = "insert into Users(Username, [Password], IsAdmin)  value(?,?,0)";
+        String query = "insert into Users(Username, [Password], IsAdmin)  values (?,?,0);";
         try {
             stm = connection.prepareStatement(query);
             stm.setString(1, username);

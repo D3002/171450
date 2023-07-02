@@ -18,7 +18,7 @@ import model.Users;
  *
  * @author admin
  */
-@WebServlet(name = "SignUpServlet", urlPatterns = {"/signUpServlet"})
+@WebServlet(name = "SignUpServlet", urlPatterns = {"/SignUpServlet"})
 public class SignUpServlet extends HttpServlet {
 
     /**
@@ -33,11 +33,11 @@ public class SignUpServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        String repass = request.getParameter("repass");
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+        String repass = request.getParameter("repassword");
         if(!pass.equals(repass)){
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("signup.jsp");
         }else{
             UserDAO dao = new UserDAO();
             Users u = dao.checkExist(user);
@@ -45,7 +45,7 @@ public class SignUpServlet extends HttpServlet {
                 dao.signUp(user, pass);
                 response.sendRedirect("home");
             }else{
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("signup.jsp");
             }
         }
     }
