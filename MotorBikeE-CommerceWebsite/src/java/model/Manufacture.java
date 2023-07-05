@@ -10,9 +10,9 @@ package model;
  */
 public class Manufacture {
     private int  ManufacturerID;
-    String name;
-    String country;
-    String contact;
+    private String name;
+    private String country;
+    private String contact;
 
     public Manufacture(int ManufacturerID, String name, String country, String contact) {
         this.ManufacturerID = ManufacturerID;

@@ -134,7 +134,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>
-                                <a href="shop.html" class="nav-item nav-link">Mua Hàng</a>
+                                <a href="shop.jsp" class="nav-item nav-link">Mua Hàng</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                     <div class="dropdown-menu rounded-0 m-0">
@@ -150,6 +150,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <a href="signup.jsp" class="nav-item nav-link">Đăng Kí</a>
                                 </c:if>
                                 <c:if test="${sessionScope.user != null}">
+                                    <c:if test="${sessionScope.user.isAdmin == 1}">
+                                        <a href="management" class="nav-item nav-link">Manage Product</a>
+                                    </c:if>
                                     <a href="" class="nav-item nav-link">${sessionScope.user.username}</a>
                                     <a href="logout" class="nav-item nav-link">Đăng Xuất</a>                       
                                 </c:if>

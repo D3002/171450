@@ -11,16 +11,20 @@ package model;
 public class MotorBike {
     private int motorBikeID;
     private String motorName;
+    private Manufacture manufactureID;
     private int price;
     private int stock;
     private String details;
+    private String pic;
 
-    public MotorBike(int motorBikeID, String motorName, int price, int stock, String details) {
+    public MotorBike(int motorBikeID, String motorName, Manufacture manufactureID, int price, int stock, String details, String pic) {
         this.motorBikeID = motorBikeID;
         this.motorName = motorName;
+        this.manufactureID = manufactureID;
         this.price = price;
         this.stock = stock;
         this.details = details;
+        this.pic = pic;
     }
 
     public int getMotorBikeID() {
@@ -37,6 +41,14 @@ public class MotorBike {
 
     public void setMotorName(String motorName) {
         this.motorName = motorName;
+    }
+
+    public Manufacture getManufactureID() {
+        return manufactureID;
+    }
+
+    public void setManufactureID(Manufacture manufactureID) {
+        this.manufactureID = manufactureID;
     }
 
     public int getPrice() {
@@ -62,5 +74,14 @@ public class MotorBike {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+   
     
 }

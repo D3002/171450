@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.MotorBike;
 import model.Users;
 
 /**
@@ -20,6 +21,8 @@ public class UserDAO extends DBContext {
     private PreparedStatement stm;
     private ResultSet rs;
     private List<Users> list;
+    private List<MotorBike> listp;
+    ManufacturerDAO dao = new ManufacturerDAO();
 
     public UserDAO() {
     }
@@ -89,12 +92,9 @@ public class UserDAO extends DBContext {
         }
     }
 
+
     public static void main(String[] args) {
-        UserDAO dao = new UserDAO();
-        List<Users> list = dao.getAll();
-        for (Users users : list) {
-            System.out.println(users);
-        }
+
     }
 
 }
