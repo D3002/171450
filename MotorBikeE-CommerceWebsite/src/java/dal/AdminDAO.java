@@ -43,4 +43,28 @@ public class AdminDAO extends DBContext {
 
         }
     }
+
+    public void updateProduct(String motorName, String manuID, String price, String stock, String img, String detail, String motorID) {
+        String query = "update MotorBike set MotorName = ?,\n"
+                + "ManufacturerID = ?,\n"
+                + "Price = ?,\n"
+                + "Stock = ?,\n"
+                + "Details = ?,\n"
+                + "pic = ?\n"
+                + "where MotorBikeID = ?";
+        try {
+            stm = connection.prepareStatement(query);
+            stm.setString(1, motorName);
+            stm.setString(2, manuID);
+            stm.setString(3, price);
+            stm.setString(4, stock);
+            stm.setString(5, img);
+            stm.setString(6, detail);
+            stm.setString(7, motorID);
+            stm.executeUpdate();
+        } catch (Exception e) {
+
+        }
+    }
+
 }

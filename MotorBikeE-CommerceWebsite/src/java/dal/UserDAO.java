@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.MotorBike;
+import model.UserDetails;
 import model.Users;
 
 /**
@@ -21,7 +22,7 @@ public class UserDAO extends DBContext {
     private PreparedStatement stm;
     private ResultSet rs;
     private List<Users> list;
-    private List<MotorBike> listp;
+    private List<UserDetails> listp;
     ManufacturerDAO dao = new ManufacturerDAO();
 
     public UserDAO() {
@@ -48,7 +49,7 @@ public class UserDAO extends DBContext {
     }
 
     public Users loginByUsername(String username, String password) {
-        String query = "select * from Users u where username = ? and password = ?";
+        String query = "select * from Users where username = ? and password = ?";
         try {
             stm = connection.prepareStatement(query);
             stm.setString(1, username);
@@ -92,6 +93,24 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public Users getUserById(String id) {
+        try {
+            String query = "Select * from Users where UserID = ?";
+            stm = connection.prepareStatement(query);
+            stm.setString(1, id);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return new Users(
+                        rs.getInt("UserID"),
+                        rs.getString("Username"),
+                        rs.getString("Password"),
+                        rs.getInt("IsAdmin")
+                );
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
 

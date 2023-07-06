@@ -26,13 +26,13 @@ public class MotorDAO extends DBContext {
     public MotorDAO() {
     }
 
-    public List<MotorBike> getAll(){
+    public List<MotorBike> getAll() {
         list = new ArrayList<>();
-        try{
+        try {
             String query = "SELECT * FROM MotorBike";
             stm = connection.prepareStatement(query);
             rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 MotorBike mb = new MotorBike(rs.getInt("motorBikeID"),
                         rs.getString("motorName"),
                         dao.getManufacturerByID(rs.getInt("ManufacturerID")),
@@ -42,16 +42,37 @@ public class MotorDAO extends DBContext {
                         rs.getString("pic"));
                 list.add(mb);
             }
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
         return list;
     }
-    
+
+    public MotorBike getById(String motorBikeID) {
+        try {
+            String query = "select * from MotorBike where MotorBikeID = ?";
+            stm = connection.prepareStatement(query);
+            stm.setString(1, motorBikeID);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                return new MotorBike(rs.getInt("motorBikeID"),
+                        rs.getString("motorName"),
+                        dao.getManufacturerByID(rs.getInt("ManufacturerID")),
+                        rs.getInt("price"),
+                        rs.getInt("stock"),
+                        rs.getString("details"),
+                        rs.getString("pic"));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         MotorDAO DAO = new MotorDAO();
         List<MotorBike> list = DAO.getAll();
-        for(MotorBike motor : list){
+        for (MotorBike motor : list) {
             System.out.println(motor);
         }
     }

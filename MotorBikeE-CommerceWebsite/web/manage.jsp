@@ -49,7 +49,7 @@
                             <div class="e-panel card">
                                 <div class="card-body">
                                     <div class="card-title">
-                                        <h6 class="mr-2"><span>Admin</span><small class="px-1">Mange Product</small></h6>
+                                        <h6 class="mr-2"><span>Admin</span><small class="px-1">Manage Product</small></h6>
                                     </div>
                                     <div class="e-table">
                                         <div class="table-responsive table-lg mt-3">
@@ -88,7 +88,7 @@
                                                             <td style="text-align: left">${o.price}</td>
                                                             <td class="text-center align-middle">
                                                                 <div class="btn-group align-top">
-                                                                    <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
+                                                                    <a href="edit?motorBikeID=${o.motorBikeID}" class="btn btn-sm btn-outline-secondary badge">Edit</a>
                                                                     <a href="delete?motorBikeID=${o.motorBikeID}" class="btn btn-sm btn-outline-secondary badge"><i class="fa fa-trash"></i></a>
                                                                 </div>
                                                             </td>
@@ -165,7 +165,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">New Product</h5>
+                                    <h5 class="modal-title">Edit Product</h5>
                                     <button type="button" class="close" data-dismiss="modal">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -223,7 +223,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col d-flex justify-content-end">
-                                                    <button class="btn btn-primary" type="submit">Add Product</button>
+                                                    <button class="btn btn-primary" type="submit">Save Change</button>
                                                 </div>
                                             </div>
                                         </form>

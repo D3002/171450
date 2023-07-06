@@ -9,13 +9,13 @@ package model;
  * @author admin
  */
 public class UserDetails {
-    private int userID;
+    private Users userID;
     private String fullName;
     private String email;
     private String phone;
     private String address;
 
-    public UserDetails(int userID, String fullName, String email, String phone, String address) {
+    public UserDetails(Users userID, String fullName, String email, String phone, String address) {
         this.userID = userID;
         this.fullName = fullName;
         this.email = email;
@@ -23,11 +23,14 @@ public class UserDetails {
         this.address = address;
     }
 
-    public int getUserID() {
+    public UserDetails() {
+    }
+
+    public Users getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(Users userID) {
         this.userID = userID;
     }
 
@@ -62,5 +65,7 @@ public class UserDetails {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    
     
 }
