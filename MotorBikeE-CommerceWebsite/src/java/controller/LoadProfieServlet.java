@@ -37,12 +37,9 @@ public class LoadProfieServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("motorBikeID");
-        Users user = new Users();
-        UserDAO DAO = new UserDAO();
+        String id = request.getParameter("UserID");
         UserDetailDAO dao = new UserDetailDAO();
-        user=DAO.getUserById(id);
-        UserDetails userdetail = dao.getUserDetail(user);
+        UserDetails userdetail = dao.getById(id);
         request.setAttribute("detail", userdetail);
         request.getRequestDispatcher("userProfile.jsp").forward(request, response);
     }

@@ -78,13 +78,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     </a>
                 </div>
                 <div class="col-lg-6 col-6 text-left">
-                    <form action="">
+                    <form action="search" method="post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" name="find">
                             <div class="input-group-append">
-                                <span class="input-group-text bg-transparent text-primary">
+                                <button type="submit" class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>
-                                </span>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -126,14 +126,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                         <a href="" class="text-decoration-none d-block d-lg-none">
-                            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">D</span>Motorbike</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>
+                                <a href="index.jsp" class="nav-item nav-link active">Trang Chủ</a>
                                 <a href="shop" class="nav-item nav-link">Mua Hàng</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
@@ -153,7 +153,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <c:if test="${sessionScope.user.isAdmin == 1}">
                                         <a href="management" class="nav-item nav-link">Manage Product</a>
                                     </c:if>
-                                    <a  class="nav-item nav-link">${sessionScope.user.username}</a>
+                                    <a href="profie?UserID=${sessionScope.user.userID}" class="nav-item nav-link">${sessionScope.user.username}</a>
                                     <a href="logout" class="nav-item nav-link">Đăng Xuất</a>                       
                                 </c:if>
                             </div>

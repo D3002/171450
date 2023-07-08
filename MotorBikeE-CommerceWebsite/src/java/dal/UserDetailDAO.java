@@ -71,6 +71,26 @@ public class UserDetailDAO extends DBContext {
         return null;
     }
     
+    public UserDetails getById(String UserID) {
+        UserDAO dao = new UserDAO();
+        try {
+            String query = "select * from UserDetails where UserID = ?";
+            stm = connection.prepareStatement(query);
+            stm.setString(1, UserID);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                return new UserDetails(dao.getUserById(rs.getString("UserID")),
+                        rs.getString("Fullname"),
+                        rs.getString("Email"),
+                        rs.getString("Phone"),
+                        rs.getString("Address"));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    } 
+    
     public void updateUserDetail(UserDetails ud) {
         String query = "update userdetails set Fullname = ?, Email = ?, Phone = ?, Address = ? where UserID = ?";
         try {

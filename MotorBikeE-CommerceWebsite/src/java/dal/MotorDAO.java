@@ -69,6 +69,29 @@ public class MotorDAO extends DBContext {
         return null;
     }
 
+    public List<MotorBike> getByName(String motorName) {
+        list = new ArrayList<>();
+        try {
+            String query = "select * from MotorBike where MotorName like ?";
+            stm = connection.prepareStatement(query);
+            stm.setString(1,"%" + motorName + "%");
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                MotorBike mb = new MotorBike(rs.getInt("motorBikeID"),
+                        rs.getString("motorName"),
+                        dao.getManufacturerByID(rs.getInt("ManufacturerID")),
+                        rs.getInt("price"),
+                        rs.getInt("stock"),
+                        rs.getString("details"),
+                        rs.getString("pic"));
+                list.add(mb);
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         MotorDAO DAO = new MotorDAO();
         List<MotorBike> list = DAO.getAll();

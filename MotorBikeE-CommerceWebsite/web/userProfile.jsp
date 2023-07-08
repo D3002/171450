@@ -130,19 +130,19 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID" value="${detail.Email}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value="${detail.Phone}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="website">Address</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Website url">
+                                    <input type="url" class="form-control" id="website" placeholder="Website url" value="${detail.Address}">
                                 </div>
                             </div>
                         </div>

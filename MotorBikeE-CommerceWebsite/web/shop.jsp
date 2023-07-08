@@ -69,9 +69,9 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-6 text-left">
-                    <form action="">
+                    <form action="search" method="post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" name="find" value="${searchContent}">
                             <div class="input-group-append">
                                 <span class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>
@@ -128,8 +128,8 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link active">Trang Chủ</a>
-                                <a href="shop.html" class="nav-item nav-link">Mua Hàng</a>
+                                <a href="home" class="nav-item nav-link active">Trang Chủ</a>
+                                <a href="shop" class="nav-item nav-link">Mua Hàng</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                     <div class="dropdown-menu rounded-0 m-0">
@@ -364,16 +364,16 @@
                                 <div class="card product-item border-0 mb-4">
                                     <div
                                         class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                        <img class="img-fluid w-100" src="${o.pic}" alt="">
+                                        <img class="img-fluid w-100" src="${o.pic}" alt="" href="detail?id=${o.motorBikeID}">
                                     </div>
-                                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                    <div href="detail?id=${o.motorBikeID}" class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                         <h6 class="text-truncate mb-3">${o.motorName}</h6>
                                         <div class="d-flex justify-content-center">
                                             <h6>${o.price} VNĐ</h6>
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between bg-light border">
-                                        <a href="" class="btn btn-sm text-dark p-0"><i
+                                        <a href="detail?id=${o.motorBikeID}" class="btn btn-sm text-dark p-0"><i
                                                 class="fas fa-eye text-primary mr-1"></i>View Detail</a>
                                         <a href="" class="btn btn-sm text-dark p-0"><i
                                                 class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
