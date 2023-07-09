@@ -91,22 +91,24 @@ public class UserDetailDAO extends DBContext {
         return null;
     } 
     
-    public void updateUserDetail(UserDetails ud) {
+    public void updateUserDetail(int userID, String Fullname, String Email, String Phone, String Address ) {
         String query = "update userdetails set Fullname = ?, Email = ?, Phone = ?, Address = ? where UserID = ?";
         try {
             stm = connection.prepareStatement(query);
-            stm.setString(1, ud.getAddress());
-            stm.setString(2, ud.getEmail());
-            stm.setString(3, ud.getFullName());
-            stm.setString(4, ud.getPhone());
-            stm.setInt(5, ud.getUserID().getUserID());
+            stm.setString(1, Fullname);
+            stm.setString(2, Email);
+            stm.setString(3, Phone);
+            stm.setString(4, Address);
+            stm.setInt(5, userID);
             stm.execute();
         } catch (Exception e) {
         }
     }
 
     public static void main(String[] args) {
-
+        UserDetailDAO dao = new UserDetailDAO();
+        UserDetails user= dao.getById("14");
+        System.out.println(user.getUserID());
     }
 
 }

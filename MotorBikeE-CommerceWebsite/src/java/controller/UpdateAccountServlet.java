@@ -4,7 +4,9 @@
  */
 package controller;
 
+import com.oracle.wls.shaded.org.apache.bcel.generic.AALOAD;
 import dal.MotorDAO;
+import dal.UserDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -33,7 +35,15 @@ public class UpdateAccountServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        int userID =Integer.valueOf(request.getParameter("UserID"));
+        String fullname = request.getParameter("fullname");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        UserDetailDAO dao = new UserDetailDAO();
+        dao.updateUserDetail(userID, fullname, email, phone, address);
+        response.sendRedirect("profie?UserID="+ userID);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,7 +58,7 @@ public class UpdateAccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

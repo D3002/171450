@@ -96,7 +96,7 @@ public class MotorDAO extends DBContext {
         MotorDAO DAO = new MotorDAO();
         List<MotorBike> list = DAO.getAll();
         for (MotorBike motor : list) {
-            System.out.println(motor);
+            System.out.println(motor.getMotorBikeID());
         }
     }
 }
