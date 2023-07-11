@@ -10,13 +10,17 @@ package model;
  */
 public class OrderDetails {
     private int orderDetailID;
-    private int quantity;
+    private Orders orderID;
+    private MotorBike motorBikeID;
     private int totalPrice;
+    private int quantity;
 
-    public OrderDetails(int orderDetailID, int quantity, int totalPrice) {
+    public OrderDetails(int orderDetailID, Orders orderID, MotorBike motorBikeID, int totalPrice, int quantity) {
         this.orderDetailID = orderDetailID;
-        this.quantity = quantity;
+        this.orderID = orderID;
+        this.motorBikeID = motorBikeID;
         this.totalPrice = totalPrice;
+        this.quantity = quantity;
     }
 
     public int getOrderDetailID() {
@@ -27,12 +31,20 @@ public class OrderDetails {
         this.orderDetailID = orderDetailID;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public Orders getOrderID() {
+        return orderID;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setOrderID(Orders orderID) {
+        this.orderID = orderID;
+    }
+
+    public MotorBike getMotorBikeID() {
+        return motorBikeID;
+    }
+
+    public void setMotorBikeID(MotorBike motorBikeID) {
+        this.motorBikeID = motorBikeID;
     }
 
     public int getTotalPrice() {
@@ -42,5 +54,16 @@ public class OrderDetails {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    
+    
     
 }

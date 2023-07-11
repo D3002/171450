@@ -47,21 +47,19 @@ public class OrderDAO extends DBContext {
                     st2.setInt(1, oid);
                     st2.setInt(2, i.getMotorbike().getMotorBikeID());
                     st2.setInt(3, i.getPrice());
-                    st2.setInt(4, i.getQ`uantity());
+                    st2.setInt(4, i.getQuantity());
                     st2.executeUpdate();
 
                 }
             }
 
             //cap nhat lai so luong san pham trong bảng product
-            String sql4 = "update MotorBike set stock = stock-? where MotorBikeID = ?";
-            PreparedStatement st4 = connection.prepareStatement(sql4);
-            List<Item> list = cart.getNumberItemByPid(StatusId);
-            System.out.println(list.size());
-            for (Item i : list) {
-                st4.setInt(1, i.getTotalQuantityOfItem());
-                st4.setInt(2, i.getMotorbike().getMotorBikeID());
-                st4.executeUpdate();
+            String sql3="update MotorBike set Stock=quantity-? where MotorBikeID=?";
+            PreparedStatement st3=connection.prepareStatement(sql3);
+            for(Item i:cart.getItems()){
+                st3.setInt(1, i.getQuantity());
+                st3.setInt(2, i.getMotorbike().getMotorBikeID());
+                st3.executeUpdate();
             }
         } catch (SQLException e) {
             System.out.println(e);

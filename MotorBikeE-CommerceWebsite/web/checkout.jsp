@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,29 +69,31 @@
             <div class="row align-items-center py-3 px-xl-5">
                 <div class="col-lg-3 d-none d-lg-block">
                     <a href="" class="text-decoration-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">D</span>Motorbike</h1>
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                                class="text-primary font-weight-bold border px-3 mr-1">D</span>Motorbike</h1>
                     </a>
                 </div>
                 <div class="col-lg-6 col-6 text-left">
-                    <form action="">
+                    <form action="search" method="post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" name="find" value="${searchContent}">
                             <div class="input-group-append">
-                                <span class="input-group-text bg-transparent text-primary">
+                                <button class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>
-                                </span>
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <c:set var="size" value="${sessionScope.size}"/>
                 <div class="col-lg-3 col-6 text-right">
                     <a href="" class="btn border">
                         <i class="fas fa-heart text-primary"></i>
                         <span class="badge">0</span>
                     </a>
-                    <a href="" class="btn border">
+                    <a href="cart.jsp" class="btn border">
                         <i class="fas fa-shopping-cart text-primary"></i>
-                        <span class="badge">0</span>
+                        <span class="badge">${size}</span>
                     </a>
                 </div>
             </div>
@@ -99,42 +102,48 @@
 
 
         <!-- Navbar Start -->
-        <div class="container-fluid">
+        <div class="container-fluid mb-5">
             <div class="row border-top px-xl-5">
                 <div class="col-lg-3 d-none d-lg-block">
-                    <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
+                       data-toggle="collapse" href="#navbar-vertical"
+                       style="height: 65px; margin-top: -1px; padding: 0 30px;">
                         <h6 class="m-0">Danh mục</h6>
                         <i class="fa fa-angle-down text-dark"></i>
                     </a>
-                    <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+                    <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
+                         id="navbar-vertical">
                         <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+
                             <a href="" class="nav-item nav-link">Xe tay ga</a>
                             <a href="" class="nav-item nav-link">Xe số</a>
                             <a href="" class="nav-item nav-link">Xe phân khối lớn</a>
                             <a href="" class="nav-item nav-link">Xe điện</a>
+
                         </div>
                     </nav>
                 </div>
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                         <a href="" class="text-decoration-none d-block d-lg-none">
-                            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                            <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                                    class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link">Trang Chủ</a>
-                                <a href="shop.html" class="nav-item nav-link">Mua Hàng</a>
+                                <a href="home" class="nav-item nav-link active">Trang Chủ</a>
+                                <a href="shop" class="nav-item nav-link">Mua Hàng</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="cart.html" class="dropdown-item">Đơn Hàng</a>
+                                        <a href="cart.jsp" class="dropdown-item">Đơn Hàng</a>
                                         <a href="checkout.html" class="dropdown-item">Kiểm Tra Đơn Hàng</a>
                                     </div>
                                 </div>
-                                <a href="contact.html" class="nav-item nav-link active">Liên Hệ</a>
+                                <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
                             </div>
                             <div class="navbar-nav ml-auto py-0">
                                 <c:if test="${sessionScope.user == null}">
@@ -151,6 +160,35 @@
                             </div>
                         </div>
                     </nav>
+                    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="height: 410px;">
+                                <img class="img-fluid" src="img/eCHnO08JyGoaz4DCflUJ.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item" style="height: 410px;">
+                                <img class="img-fluid" src="img/ogpdtTJGGRxIpH3TuZUP.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item" style="height: 410px;">
+                                <img class="img-fluid" src="img\T98-GRNADE-2-1-FA.jpg.webp" alt="Image">
+                            </div>
+                            <div class="carousel-item" style="height: 410px;">
+                                <img class="img-fluid" src="img\img-topmain-02.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item" style="height: 410px;">
+                                <img class="img-fluid" src="img\cb650r6165.jpg" alt="Image">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-prev-icon mb-n2"></span>
+                            </div>
+                        </a>
+                        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-next-icon mb-n2"></span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -170,10 +208,8 @@
         </div>
         <!-- Page Header End -->
 
-
         <!-- Checkout Start -->
-        <!-- Checkout Start -->
-        <form action="" method="post" name="f">
+        <form action="checkout" method="post" name="f">
             <div class="container-fluid pt-5">
                 <div class="row px-xl-5">
 
@@ -184,15 +220,19 @@
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <label>Tên người nhận</label>
-                                    <input class="form-control" type="text" name ="name" value="${sessionScope.account.fullname}">
+                                    <input class="form-control" type="text" name ="name" value="${sessionScope.userDetail.fullName}">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Email người nhận</label>
+                                    <input class="form-control" type="text" name ="name" value="${sessionScope.userDetail.email}">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Số điện thoại người nhận</label>
-                                    <input class="form-control" type="text" name ="phone" value="${sessionScope.account.phone}">
+                                    <input class="form-control" type="text" name ="phone" value="${sessionScope.userDetail.phone}">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Địa chỉ người nhận</label>
-                                    <input class="form-control" type="text" name ="address" value="${sessionScope.account.address}">
+                                    <input class="form-control" type="text" name ="address" value="${sessionScope.userDetail.address}">
                                 </div>                            
                             </div>
                         </div>
@@ -209,30 +249,25 @@
                                 <c:set var="o" value="${sessionScope.cart}"></c:set>
                                 <c:forEach items="${o.items}" var="i">
                                     <div class="d-flex justify-content-between">
-                                        <p>${i.product.name} </p>
-                                        <c:if test = "${i.product.productSale == null}">
-                                            <p><fmt:formatNumber pattern="###,###,###" value = "${i.product.price*i.quantity}" type = "number"/>VNĐ</p>
-                                        </c:if >
-                                        <c:if test = "${i.product.productSale != null}">
-                                            <p><fmt:formatNumber pattern="###,###,###" value = "${(i.product.price - i.product.price * i.product.productSale.discount)*i.quantity}" type = "number"/>VNĐ</p>
-                                        </c:if>
+                                        <p>${i.motorbike.motorName}(${i.quantity}) </p>
+                                        <p><fmt:formatNumber pattern="###,###,###" value = "" type = "number"/>${i.motorbike.price * i.quantity} VNĐ</p>                                     
                                     </div>
                                 </c:forEach>  
                                 <hr class="mt-0">
                                 <div class="card-footer border-secondary bg-transparent">
                                     <div class="d-flex justify-content-between mt-2">
-                                        <h5 class="font-weight-bold">Total</h5>
+                                        <h5 class="font-weight-bold">TỔNG</h5>
                                         <c:set var="totalMoney" value ="0"  ></c:set>
                                         <c:forEach items="${o.items}" var="i">
                                             <c:set var="totalMoney" value="${totalMoney + i.quantity*i.price}"></c:set>
                                         </c:forEach>
-                                        <h5 class="font-weight-bold"><fmt:formatNumber pattern="###,###,###" value = "${totalMoney}" type = "number"/>VNĐ</h5>
+                                        <h5 class="font-weight-bold"><fmt:formatNumber pattern="###,###,###" value = "" type = "number"/>${totalMoney} VNĐ</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="card border-secondary mb-5">
                                 <div class="card-footer border-secondary bg-transparent">
-                                    <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" onclick="order()">Order</button>
+                                    <input type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" value="ĐẶT HÀNG">  
                                 </div>
                             </div>
                         </div>

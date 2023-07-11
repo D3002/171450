@@ -64,7 +64,7 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Users account = null;
-        Object a = session.getAttribute("account");
+        Object a = session.getAttribute("user");
         if (a != null) {
             request.getRequestDispatcher("checkout.jsp").forward(request, response);
         } else {
@@ -99,16 +99,16 @@ public class CheckoutServlet extends HttpServlet {
         MotorDAO p = new MotorDAO();
 
         Users account = null;
-        Object a = session.getAttribute("account");
+        Object a = session.getAttribute("user");
         if (a != null) {
             account = (Users) a;
             OrderDAO odb = new OrderDAO();
             odb.addOrder(account, cart, 2);
             session.removeAttribute("cart");
-            response.sendRedirect("home");
+            response.sendRedirect("thankyou.jsp");
 //            out.print(p.getProductByidAndSize(cart.getItems().get(0).getProduct().getId(),cart.getItems().get(0).getSize() ));
         } else {
-            response.sendRedirect("login");
+            response.sendRedirect("loginServlet");
         }
     }
 

@@ -264,7 +264,7 @@
                     </table>
                 </div>
                 <div class="col-lg-4">
-                    <form action="" name="f">
+                    <form action="" method="post">
                         <div class="card border-secondary mb-5">
                             <div class="card-header bg-secondary border-0">
                                 <h4 class="font-weight-semi-bold m-0">Giỏ hàng</h4>
@@ -277,9 +277,9 @@
                                     <c:forEach items="${o.items}" var="i">
                                         <c:set var="totalMoney" value="${totalMoney + i.quantity*i.price}"></c:set>
                                     </c:forEach>
-                                        <input class="font-weight-bold" value="${totalMoney}">${totalMoney} VNĐ
+                                    <h5 class="font-weight-bold"><fmt:formatNumber pattern="###,###,###" value = "" type = "number"/>${totalMoney} VNĐ</h5>
                                 </div>
-                                <button class="btn btn-block btn-primary my-3 py-3" onclick="checkout()">Checkout</button>
+                                <a href="checkout.jsp" class="btn btn-block btn-primary my-3 py-3"  value="Checkout">Checkout</a>
                             </div>
                         </div>
                     </form>

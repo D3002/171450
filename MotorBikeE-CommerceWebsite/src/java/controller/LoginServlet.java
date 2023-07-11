@@ -5,6 +5,7 @@
 package controller;
 
 import dal.UserDAO;
+import dal.UserDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.UserDetails;
 import model.Users;
 
 /**
@@ -35,12 +37,17 @@ public class LoginServlet extends HttpServlet {
         String username=request.getParameter("user");
         String password=request.getParameter("pass");
         UserDAO dao = new UserDAO();
+        UserDetailDAO DAO = new UserDetailDAO();
         Users u =dao.loginByUsername(username, password);
+        int id=u.getUserID();
+        String userid= String.valueOf(id);
+        UserDetails userDetail = DAO.getById(userid);
         if(u == null){
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("user", u);
+            session.setAttribute("userDetail", userDetail);
             response.sendRedirect("home");
         }
     }

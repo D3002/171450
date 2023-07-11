@@ -9,13 +9,17 @@ package model;
  */
 public class Orders {
     private int orderID;
+    private Users userID;
     private String orderDate;
     private int totalPrice;
+    private OrderStatus statusID;
 
-    public Orders(int orderID, String orderDate, int totalPrice) {
+    public Orders(int orderID, Users userID, String orderDate, int totalPrice, OrderStatus statusID) {
         this.orderID = orderID;
+        this.userID = userID;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
+        this.statusID = statusID;
     }
 
     public int getOrderID() {
@@ -24,6 +28,14 @@ public class Orders {
 
     public void setOrderID(int orderID) {
         this.orderID = orderID;
+    }
+
+    public Users getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Users userID) {
+        this.userID = userID;
     }
 
     public String getOrderDate() {
@@ -41,5 +53,15 @@ public class Orders {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public OrderStatus getStatusID() {
+        return statusID;
+    }
+
+    public void setStatusID(OrderStatus statusID) {
+        this.statusID = statusID;
+    }
+
+    
     
 }
