@@ -138,7 +138,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="cart.html" class="dropdown-item">Đơn Hàng</a>
+                                        <a href="cart.jsp" class="dropdown-item">Đơn Hàng</a>
                                         <a href="checkout.html" class="dropdown-item">Kiểm Tra Đơn Hàng</a>
                                     </div>
                                 </div>
@@ -415,13 +415,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </div>
         <!-- Products End -->
 
-        <!-- Advertise Cover -->
-        <div class="row-cols-md-2">
-            <div class="Ads">
-                <img src="img/YamahaAds.webp" alt="">
-                <img src="img/HondaAds.png" alt="">
-            </div>
-        </div>
         <!-- Products Start -->
         <div class="container-fluid pt-5">
             <div class="text-center mb-4">

@@ -49,10 +49,32 @@ public class MotorDAO extends DBContext {
     }
 
     public MotorBike getById(String motorBikeID) {
+
         try {
             String query = "select * from MotorBike where MotorBikeID = ?";
             stm = connection.prepareStatement(query);
             stm.setString(1, motorBikeID);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                return new MotorBike(rs.getInt("motorBikeID"),
+                        rs.getString("motorName"),
+                        dao.getManufacturerByID(rs.getInt("ManufacturerID")),
+                        rs.getInt("price"),
+                        rs.getInt("stock"),
+                        rs.getString("details"),
+                        rs.getString("pic"));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public MotorBike getByIdInt(int motorBikeID) {
+        try {
+            String query = "select * from MotorBike where MotorBikeID = ?";
+            stm = connection.prepareStatement(query);
+            stm.setInt(1, motorBikeID);
             rs = stm.executeQuery();
 
             while (rs.next()) {
@@ -74,7 +96,7 @@ public class MotorDAO extends DBContext {
         try {
             String query = "select * from MotorBike where MotorName like ?";
             stm = connection.prepareStatement(query);
-            stm.setString(1,"%" + motorName + "%");
+            stm.setString(1, "%" + motorName + "%");
             rs = stm.executeQuery();
             while (rs.next()) {
                 MotorBike mb = new MotorBike(rs.getInt("motorBikeID"),

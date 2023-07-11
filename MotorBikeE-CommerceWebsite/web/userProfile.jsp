@@ -100,7 +100,7 @@
                                     <div class="user-avatar">
                                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                                     </div>
-                                    <h5 class="user-name">Yuki Hayashi</h5>
+                                    <h5 class="user-name">${sessionScope.user.username}</h5>
                                     <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                                                               data-cfemail="dca5a9b7b59c91bda4abb9b0b0f2bfb3b1">[email&#160;protected]</a>
                                     </h6>
