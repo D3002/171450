@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -202,12 +203,12 @@
                     </div>
                     <h3 class="font-weight-semi-bold mb-4">${detail.price} VNĐ</h3>
                     <p class="mb-4">${detail.details}</p>
-                    <div class="d-flex mb-3">
-                        <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
+                    <!--<div class="d-flex mb-3">
+                        <p class="text-dark font-weight-medium mb-0 mr-3">Manufacturer: ${detail.manufactureID.name}</p>
                     </div>
                     <div class="d-flex mb-4">
-                        <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                    </div>
+                        <p class="text-dark font-weight-medium mb-0 mr-3">Origin: ${detail.manufactureID.country}</p>
+                    </div>-->
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
                     </div>

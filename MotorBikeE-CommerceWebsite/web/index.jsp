@@ -152,6 +152,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 <c:if test="${sessionScope.user != null}">
                                     <c:if test="${sessionScope.user.isAdmin == 1}">
                                         <a href="management" class="nav-item nav-link">Manage Product</a>
+                                        <a href="accorder" class="nav-item nav-link">Manage Acc</a>   
+                                        <a href="ormanage" class="nav-item nav-link">Manage Order</a>
                                     </c:if>
                                     <a href="profie?UserID=${sessionScope.user.userID}" class="nav-item nav-link">${sessionScope.user.username}</a>
                                     <a href="logout" class="nav-item nav-link">Đăng Xuất</a>                       

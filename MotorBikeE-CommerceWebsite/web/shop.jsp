@@ -393,7 +393,6 @@
                                     </form>
                                 </div>
                             </div>
-
                         </c:forEach>
 
                         <script type="text/javascript">

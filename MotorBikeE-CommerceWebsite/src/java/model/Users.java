@@ -4,6 +4,8 @@
  */
 package model;
 
+import dal.UserDetailDAO;
+
 /**
  *
  * @author admin
@@ -13,6 +15,7 @@ public class Users {
     private String username;
     private String password;
     private int isAdmin;
+    private UserDetails userDetail;
 
     public Users(int userID, String username, String password, int isAdmin) {
         this.userID = userID;
@@ -54,6 +57,10 @@ public class Users {
 
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public UserDetails getUserDetail() {
+        return new UserDetailDAO().getById(this.getUserID() + "");
     }
 
 

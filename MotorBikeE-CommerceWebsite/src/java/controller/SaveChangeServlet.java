@@ -8,7 +8,6 @@ import dal.AdminDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,7 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author admin
  */
-@WebServlet(name = "SaveChangeServlet", urlPatterns = {"/save"})
 public class SaveChangeServlet extends HttpServlet {
 
     /**
@@ -39,11 +37,10 @@ public class SaveChangeServlet extends HttpServlet {
         String stock = request.getParameter("stock");
         String detail = request.getParameter("detail");
         String img = request.getParameter("img");
-        
+
         AdminDAO dao = new AdminDAO();
         dao.updateProduct(motorName, manuID, price, stock, detail, img, motorID);
         response.sendRedirect("management");
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

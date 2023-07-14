@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+
+import dal.AdminDAO;
+import java.util.List;
+
 /**
  *
  * @author admin
@@ -13,6 +17,10 @@ public class Orders {
     private String orderDate;
     private int totalPrice;
     private OrderStatus statusID;
+    private List<OrderDetails> odList;
+    
+    public Orders() {
+    }
 
     public Orders(int orderID, Users userID, String orderDate, int totalPrice, OrderStatus statusID) {
         this.orderID = orderID;
@@ -60,6 +68,14 @@ public class Orders {
 
     public void setStatusID(OrderStatus statusID) {
         this.statusID = statusID;
+    }
+
+    /*public List<OrderDetails> getOdList() {
+        return new AdminDAO().getOrderDetails(this.orderID + "");
+    }*/
+
+    public void setOdList(List<OrderDetails> odList) {
+        this.odList = odList;
     }
 
     

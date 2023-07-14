@@ -1,6 +1,6 @@
 <%-- 
-    Document   : manage
-    Created on : Jul 5, 2023, 9:05:26 AM
+    Document   : manageOrder
+    Created on : Jul 12, 2023, 8:34:14 AM
     Author     : admin
 --%>
 
@@ -33,7 +33,7 @@
                             <ul class="nav">
                                 <li class="nav-item"><a class="nav-link px-2 active" href="#"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
                                 <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-crud-users" target="__blank"><i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a></li>
-                                <li class="nav-item"><a class="nav-link px-2" href="manageOrder.jsp" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
+                                <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-edit-profile-page" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,15 +62,15 @@
                                                                 <label class="custom-control-label" for="all-items"></label>
                                                             </div>
                                                         </th>
-                                                        <th>Image</th>
-                                                        <th class="max-width">ID</th>
-                                                        <th class="sortable">Product</th>
-                                                        <th>Price </th>
-                                                        <th>Actions</th>
+                                                        <th>User ID</th>
+                                                        <th class="max-width">Username</th>
+                                                        <th class="sortable">Password</th>
+                                                        <th>Role</th>                     
+                                                        <th style="text-align: center">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:forEach items="${listP}" var="o">
+                                                    <c:forEach items="${listacc}" var="o">
                                                         <tr>
                                                             <td class="align-middle">
                                                                 <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
@@ -78,18 +78,21 @@
                                                                     <label class="custom-control-label" for="item-1"></label>
                                                                 </div>
                                                             </td>
-                                                            <td class="align-middle text-center">
-                                                                <div class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 35px; height: 35px; border-radius: 3px;">
-                                                                    <img class="img-fluid" src="${o.pic}" alt="Image"> 
-                                                                </div>
+                                                            <td class="align-middle text-center">${o.userID}</td>
+                                                            <td class="text-nowrap align-middle">${o.username}</td>
+                                                            <td class="text-nowrap align-middle"><span>${o.password}</span></td>
+                                                            <td style="text-align: left">
+                                                                <c:if test="${o.isAdmin == 1}">
+                                                                    <p>Admin</p>
+                                                                </c:if>
+                                                                <c:if test="${o.isAdmin != 1}">
+                                                                    <p>User</p>
+                                                                </c:if>
                                                             </td>
-                                                            <td class="text-nowrap align-middle">${o.motorBikeID}</td>
-                                                            <td class="text-nowrap align-middle"><span>${o.motorName}</span></td>
-                                                            <td style="text-align: left">${o.price}</td>
                                                             <td class="text-center align-middle">
                                                                 <div class="btn-group align-top">
-                                                                    <a href="edit?motorBikeID=${o.motorBikeID}" class="btn btn-sm btn-outline-secondary badge">Edit</a>
-                                                                    <a href="delete?motorBikeID=${o.motorBikeID}" class="btn btn-sm btn-outline-secondary badge" onclick="doDelete(${o.motorBikeID})"><i class="fa fa-trash"></i></a>
+                                                                    <a href="editacc?userID=${o.userID}" class="btn btn-sm btn-outline-secondary badge">Edit</a>
+                                                                    <!--<a href="deleteaccount?userID=${o.userID}" class="btn btn-sm btn-outline-secondary badge"><i class="fa fa-trash"></i></a>-->
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -113,6 +116,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="col-12 col-lg-3 mb-3">
                             <div class="card">
                                 <div class="card-body">
@@ -158,7 +162,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="modal fade" role="dialog" tabindex="-1" id="user-form-modal">
@@ -238,14 +242,7 @@
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript">
-            function doDelete(id)
-            {
-                var c = confirm("Xóa sản phẩm?");
-                if (c)
-                {
-                    window.location.href = "delete?motorBikeID=" + id;
-                }
-            }
+
         </script>
     </body>
 </html>

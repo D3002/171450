@@ -98,7 +98,7 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                                        <img src="img/userUnknomn.png" alt="Maxwell Admin">
                                     </div>
                                     <h5 class="user-name">${sessionScope.user.username}</h5>
                                     <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
@@ -106,9 +106,8 @@
                                     </h6>
                                 </div>
                                 <div class="about">
-                                    <h5>About</h5>
-                                    <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human
-                                        experiences.</p>
+                                    <h5>Change Your Profie</h5>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -177,9 +176,9 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
                                             <a href="home" id="submit" name="submit"
-                                                    class="btn btn-secondary">Cancel</a>
+                                               class="btn btn-secondary">Cancel</a>
                                             <button type="submit" id="submit" name="submit"
-                                                    class="btn btn-primary">Update</button>
+                                                    class="btn btn-primary" onclick="doChange(${sessionScope.user.userID})">Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +194,14 @@
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript">
-
+                                                        function doChange(id)
+                                                        {
+                                                            var c = confirm("Lưu thay đổi?");
+                                                            if (c)
+                                                            {
+                                                                window.location.form = "account?userID=" + id;
+                                                            }
+                                                        }
         </script>
     </body>
 

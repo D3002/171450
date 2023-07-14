@@ -4,7 +4,8 @@
  */
 package controller;
 
-import dal.MotorDAO;
+import dal.AdminDAO;
+import dal.OrderDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,15 +15,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.MotorBike;
+import model.OrderDetails;
 import model.Users;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "EditServlet", urlPatterns = {"/edit"})
-public class EditServlet extends HttpServlet {
+@WebServlet(name = "OrderManageServlet", urlPatterns = {"/ormanage"})
+public class OrderManageServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +34,13 @@ public class EditServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("motorBikeID");
-        MotorDAO dao = new MotorDAO();
-        MotorBike mb = dao.getById(id);
-        request.setAttribute("detail", mb);
-        request.getRequestDispatcher("Edit.jsp").forward(request, response);
+        AdminDAO dao = new AdminDAO();
+        List<OrderDetails> list = dao.getAllOrderDetails();
+        request.setAttribute("listor", list);
+        request.getRequestDispatcher("ordermanage.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

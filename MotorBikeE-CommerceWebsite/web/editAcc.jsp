@@ -1,109 +1,66 @@
+<%-- 
+    Document   : editAcc
+    Created on : Jul 14, 2023, 7:17:18 PM
+    Author     : admin
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="formbold-main-wrapper">
     <div class="formbold-form-wrapper">
 
-        <form action="save" method="POST">
+        <form action="saveacc" method="POST">
             <div class="formbold-input-flex">
                 <div>
-                    <label for="firstname" class="formbold-form-label"> Motorbike ID </label>
+                    <label for="firstname" class="formbold-form-label"> User ID </label>
                     <input
                         type="text"
-                        name="motorID"
+                        name="userID"
                         id="firstname"
                         placeholder=""
                         class="formbold-form-input"
-                        value="${detail.motorBikeID}"
+                        value="${uid.userID}"
                         readonly
                         />
                 </div>
-
                 <div>
-                    <label for="lastname" class="formbold-form-label"> Manufacturer ID </label>
+                    <label class="formbold-form-label">Role</label>
+
                     <input
                         type="text"
-                        name="manuID"
-                        id="lastname"
-                        placeholder="Your last name"
-                        class="formbold-form-input"
-                        value=""
-                        />
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label class="formbold-form-label"> Name </label>
-                    <input
-                        type="text"
-                        name="motorName"
-                        id="email"
-                        placeholder="example@email.com"
-                        class="formbold-form-input"
-                        value="${detail.motorName}"
-                        />
-                </div>
-
-                <div>
-                    <label class="formbold-form-label">Category</label>
-
-                    <select class="formbold-form-input" name="category" id="occupation">
-                        <option value="male">Xe Ga</option>
-                        <option value="female">Xe Số</option>
-                        <option value="others">Xe Phân Khối Lớn</option>
-                        <option value="others">Xe Điện</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="firstname" class="formbold-form-label"> Price</label>
-                    <input
-                        type="text"
-                        name="price"
+                        name="role"
                         id="firstname"
                         placeholder=""
                         class="formbold-form-input"
-                        value="${detail.price}"
+                        value="${uid.isAdmin}"
+                        readonly
                         />
                 </div>
-
+            </div>
+            <div class="formbold-input-flex">
                 <div>
-                    <label for="lastname" class="formbold-form-label"> Stock </label>
+                    <label class="formbold-form-label">Username</label>
                     <input
                         type="text"
-                        name="stock"
-                        id="lastname"
-                        placeholder="Your last name"
+                        name="username"
+                        id="email"
+                        placeholder="example@email.com"
                         class="formbold-form-input"
-                        value="${detail.stock}"
+                        value="${uid.username}"
+                        />
+                </div>
+                <div>
+                    <label class="formbold-form-label">Password</label>
+                    <input
+                        type="text"
+                        name="password"
+                        id="email"
+                        placeholder="example@email.com"
+                        class="formbold-form-input"
+                        value="${uid.password}"
                         />
                 </div>
             </div>
-
-            <div class="formbold-mb-3">
-                <label for="age" class="formbold-form-label"> Image Path </label>
-                <input
-                    type="text"
-                    name="img"
-                    id="age"
-                    class="formbold-form-input"
-                    value="${detail.pic}"
-                    />
-            </div>     
-
-            <div class="formbold-mb-3">
-                <label for="message" class="formbold-form-label">
-                    Detail
-                </label>
-                <textarea
-                    rows="6"
-                    name="detail"
-                    id="message"
-                    class="formbold-form-input"
-                    >${detail.details}</textarea>
-            </div>
-            <input type="submit" style="background-color: #28a745" class="formbold-btn" value="Save Change">
+            <button type="submit" style="background-color: #28a745" class="formbold-btn">Save Change</button>
         </form>
     </div>
 </div>
@@ -120,12 +77,14 @@
     .formbold-mb-3 {
         margin-bottom: 15px;
     }
+
     .formbold-main-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 48px;
     }
+
     .formbold-form-wrapper {
         margin: 0 auto;
         max-width: 570px;
@@ -133,14 +92,17 @@
         background: white;
         padding: 40px;
     }
+
     .formbold-img {
         display: block;
         margin: 0 auto 45px;
     }
+
     .formbold-input-wrapp > div {
         display: flex;
         gap: 20px;
     }
+
     .formbold-input-flex {
         display: flex;
         gap: 20px;
@@ -169,6 +131,7 @@
     .formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
         color: rgba(83, 99, 135, 0.5);
     }
+
     .formbold-form-input:focus {
         border-color: #6a64f1;
         box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
@@ -181,6 +144,7 @@
         display: block;
         margin-bottom: 10px;
     }
+
     .formbold-form-file-flex {
         display: flex;
         align-items: center;
@@ -215,6 +179,7 @@
         line-height: 16px;
         margin-right: 10px;
     }
+
     .formbold-btn {
         text-align: center;
         width: 100%;
@@ -231,6 +196,7 @@
     .formbold-btn:hover {
         box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
     }
+
     .formbold-w-45 {
         width: 45%;
     }
